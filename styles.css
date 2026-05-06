@@ -1,0 +1,93 @@
+:root {
+  --bg: #0b1220;
+  --card: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.68);
+  --accent: #6ee7ff;
+  --accent2: #a78bfa;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  direction: rtl;
+  text-align: right;
+  background: radial-gradient(1000px 500px at 10% 0%, rgba(110, 231, 255, 0.16), transparent 60%),
+    radial-gradient(800px 500px at 90% 20%, rgba(167, 139, 250, 0.14), transparent 55%),
+    var(--bg);
+  color: var(--text);
+}
+
+.container-narrow {
+  max-width: 980px;
+}
+
+.glass {
+  background: var(--card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.btn-accent {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border: none;
+  color: #06111f !important;
+  font-weight: 700;
+}
+
+.form-control,
+.form-select {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: 0 0 0 0.25rem rgba(110, 231, 255, 0.12);
+  border-color: rgba(110, 231, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.table {
+  color: var(--text);
+}
+
+.table thead th {
+  color: var(--muted);
+  border-bottom-color: var(--border);
+}
+
+.table td,
+.table th {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.badge-soft {
+  background: rgba(110, 231, 255, 0.14);
+  border: 1px solid rgba(110, 231, 255, 0.24);
+  color: var(--text);
+}
+
+.link-light {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.small-note {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.62);
+}
+

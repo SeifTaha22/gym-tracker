@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>إنشاء حساب — تتبّع الجيم</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/public/styles.css" />
+  </head>
+  <body>
+    <div class="container container-narrow py-5">
+      <div class="mb-4">
+        <a class="link-light text-decoration-none" href="/">← الرئيسية</a>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-6">
+          <div class="p-4 rounded-4 glass">
+            <div class="fs-4 fw-bold mb-1">إنشاء حساب</div>
+            <div class="muted mb-4">حساب مستقل لتخزين تقدمك.</div>
+
+            <div id="err" class="alert alert-danger d-none" role="alert"></div>
+
+            <form id="form" class="d-grid gap-3">
+              <div>
+                <label class="form-label">الاسم (اختياري)</label>
+                <input id="name" type="text" class="form-control" placeholder="مثال: طه" />
+              </div>
+              <div>
+                <label class="form-label">البريد الإلكتروني</label>
+                <input id="email" type="email" class="form-control" placeholder="name@email.com" required />
+              </div>
+              <div>
+                <label class="form-label">كلمة المرور</label>
+                <input id="password" type="password" class="form-control" placeholder="8 أحرف على الأقل" required />
+                <div class="small-note mt-2">ملاحظة: اجعلها قوية، وستحتاجها لتسجيل الدخول لاحقًا.</div>
+              </div>
+              <button class="btn btn-accent btn-lg" type="submit">إنشاء</button>
+              <div class="small-note">
+                لديك حساب؟ <a class="link-light" href="/login">تسجيل الدخول</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/public/app.js"></script>
+    <script>
+      const { api, byId } = window.GymApp;
+      const err = byId("err");
+      const showErr = (m) => {
+        err.textContent = m;
+        err.classList.remove("d-none");
+      };
+
+      byId("form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        err.classList.add("d-none");
+        try {
+          await api("/api/auth/register", {
+            method: "POST",
+            body: JSON.stringify({
+              name: byId("name").value,
+              email: byId("email").value,
+              password: byId("password").value,
+            }),
+          });
+          location.href = "/app";
+        } catch (e) {
+          if (e?.data?.error === "EMAIL_TAKEN") return showErr("هذا البريد مستخدم بالفعل.");
+          if (e?.data?.error === "WEAK_PASSWORD") return showErr("كلمة المرور ضعيفة (8 أحرف أو أكثر).");
+          showErr("حدث خطأ. حاول مرة أخرى.");
+        }
+      });
+    </script>
+  </body>
+</html>
+

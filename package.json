@@ -1,0 +1,13 @@
+{
+  "name": "gym-tracker-ar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Arabic (RTL) gym workout tracker (no deps).",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
+
