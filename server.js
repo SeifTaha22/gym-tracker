@@ -2,13 +2,13 @@ const http = require("http");
 const { URL } = require("url");
 const path = require("path");
 
-const { serveStatic } = require("./src/static");
-const { json } = require("./src/http");
-const { requireAuth, getAuthedUser } = require("./src/auth/middleware");
-const { authRoutes } = require("./src/routes/auth");
-const { userRoutes } = require("./src/routes/user");
-const { workoutsRoutes } = require("./src/routes/workouts");
-const { favoritesRoutes } = require("./src/routes/favorites");
+const { serveStatic } = require("./static");
+const { json } = require("./http");
+const { requireAuth, getAuthedUser } = require("./middleware");
+const { authRoutes } = require("./auth");
+const { userRoutes } = require("./user");
+const { workoutsRoutes } = require("./workouts");
+const { favoritesRoutes } = require("./favorites");
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 
