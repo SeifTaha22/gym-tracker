@@ -1,7 +1,7 @@
 const fs = require("fs/promises");
 const path = require("path");
 
-const PUBLIC_DIR = path.join(__dirname, "..", "public");
+const PUBLIC_DIR = path.join(__dirname, "public");
 
 const MIME = {
   ".html": "text/html; charset=utf-8",

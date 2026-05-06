@@ -1,5 +1,5 @@
-const { readJsonFile, writeJsonFileAtomic } = require("../storage");
-const { newId } = require("../utils");
+const { readJsonFile, writeJsonFileAtomic } = require("./storage");
+const { newId } = require("./utils");
 
 const FILE = "users.json";
 

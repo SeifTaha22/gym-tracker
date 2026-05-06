@@ -1,5 +1,5 @@
 const crypto = require("crypto");
-const { base64urlEncode, base64urlDecodeToString, safeEqual, nowUnix } = require("../utils");
+const { base64urlEncode, base64urlDecodeToString, safeEqual, nowUnix } = require("./utils");
 
 function getSecret() {
   const secret = process.env.GYM_TRACKER_SECRET;

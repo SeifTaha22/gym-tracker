@@ -1,7 +1,7 @@
-const { json } = require("../http");
+const { json } = require("./http");
 const { parseCookies } = require("./cookies");
 const { verifyToken } = require("./tokens");
-const { usersRepo } = require("../repos/users");
+const { usersRepo } = require("./users");
 
 async function getAuthedUser(req) {
   const cookies = parseCookies(req);

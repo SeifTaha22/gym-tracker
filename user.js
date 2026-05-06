@@ -1,5 +1,5 @@
-const { json } = require("../http");
-const { requireAuth } = require("../auth/middleware");
+const { json } = require("./http");
+const { requireAuth } = require("./middleware");
 
 const userRoutes = {
   async me(req, res) {
