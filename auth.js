@@ -1,8 +1,8 @@
-const { readJson, json } = require("../http");
-const { usersRepo } = require("../repos/users");
-const { hashPassword, verifyPassword } = require("../auth/passwords");
-const { createToken } = require("../auth/tokens");
-const { serializeCookie } = require("../auth/cookies");
+const { readJson, json } = require("./http");
+const { usersRepo } = require("./users");
+const { hashPassword, verifyPassword } = require("./passwords");
+const { createToken } = require("./tokens");
+const { serializeCookie } = require("./cookies");
 
 function publicUser(user) {
   return { id: user.id, email: user.email, name: user.name, createdAt: user.createdAt };
